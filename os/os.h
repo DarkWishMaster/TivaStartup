@@ -4,8 +4,12 @@
 #define OS_H_
 
 #include <stdint.h>
-#include "mcal_config.h"
 
+typedef enum {RESET = 0, SET = !RESET}        FlagStatus, ITStatus;
+typedef enum {DISABLE = 0, ENABLE = !DISABLE} FunctionalState;
+typedef enum {ERROR = 0, SUCCESS = !ERROR}    ErrorStatus;
+
+#define IS_FUNCTIONAL_STATE(STATE) (((STATE) == DISABLE) || ((STATE) == ENABLE))
 
 #ifndef MAX_NR_OF_TASKS
 #define MAX_NR_OF_TASKS 20
